@@ -1,3 +1,8 @@
+#ДОБАВИТИ ВАЛІДАЦІЮ КОЛИ ВВОДИТЬСЯ ТІЛЬКИ ПАРОЛЬ АБО ТІЛЬКИ ЛОГІН
+
+
+
+
 import csv
 import hashlib
 import json
@@ -5,28 +10,28 @@ import os
 from datetime import datetime, timezone
 
 
-# 1. Власний виняток (помилка) для коротких паролів
+#гарна помилка для хороших паролів
 class ValidationError(Exception):
     pass
 
 
-# Ваша персональна сіль для 11 варіанту
+#сіль
 PERSONAL_SALT = "00011"
 
 
-# 2. Функція хешування пароля (Алгоритм blake2b)
+#хешування паролів blake2b
 def generate_hash(password: str, salt: str = "00000") -> str:
     if not password or not salt:
-        raise ValueError("Пароль або сіль не можуть бути порожніми.")
+        raise ValueError("пароль або сіль не можуть бути порожніми")
     if len(password) < 12:
-        raise ValidationError(f"Пароль надто короткий. Мінімум 12 символів. Введено: {len(password)}")
+        raise ValidationError(f"пароль надто короткий мінімум 12 символів введено: {len(password)}")
 
     combined = password + salt
     hash_object = hashlib.blake2b(combined.encode("utf-8"))
     return hash_object.hexdigest()
 
 
-# 3. Список з 10 користувачів для реєстрації
+#10 юзерів
 users_to_register = (
     ("admin", "SuperPyperPass3!"),
     ("manager", "LoNgPass228@2"),
@@ -38,22 +43,28 @@ users_to_register = (
     ("tester", "Plz5Pointlab5@"),
     ("auditor", "EzPasswordEz45!"),
     ("support", "Packettracerpass2!"),
+    (" ", "ASSDXXssda2!ss"),
+    ("fdsdf", " ")
 )
 
-
+#створення кортежу
 def create_user(username, password):
+    #додано перевірку на логін
+    if not username or not username.strip():
+        raise ValueError("Логін не може бути порожнім або складатися лише з пробілів.")
+
     hash_value = generate_hash(password, PERSONAL_SALT)
     return (username, hash_value)
 
-
+#створює дату та юзер.цсв
 def create_users(users_list):
-    current_dir = os.path.dirname(os.path.abspath(__file__))
+    current_dir = os.path.dirname(os.path.abspath(__file__))#прихована змінна яка завжди зберігає ім'я поточного скрипта
     data_dir = os.path.join(current_dir, "data")
     csv_path = os.path.join(data_dir, "users.csv")
 
     try:
         os.makedirs(data_dir, exist_ok=True)
-        with open(csv_path, mode="w", newline="", encoding="utf-8") as file:
+        with open(csv_path, mode="w", newline="", encoding="utf-8") as file:#віз закриває файл при помилці
             writer = csv.writer(file)
             for username, password in users_list:
                 try:
@@ -65,7 +76,7 @@ def create_users(users_list):
         print(f"Помилка доступу до файлу: {e}")
 
 
-# 4. Декоратор для логування подій у JSON
+#декоратор запису у джейсон
 def log_event(func):
     def wrapper(username, password, users_db):
         status = "failure"
@@ -75,7 +86,6 @@ def log_event(func):
             return result
         except Exception:
             status = "failure"
-            # Виправлено TRY201: просто raise замість raise e
             raise
         finally:
             current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -85,7 +95,6 @@ def log_event(func):
                 "event": "login",
                 "user": username,
                 "result": status,
-                # Виправлено DTZ005: додано timezone.utc
                 "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
                 "args": [username, "***"],
                 "kwargs": {},
@@ -108,7 +117,7 @@ def log_event(func):
     return wrapper
 
 
-# 5. Читання бази даних
+#функ читання ситає цсв і будує табличку
 def read_users_db():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     csv_path = os.path.join(current_dir, "data", "users.csv")
@@ -136,7 +145,7 @@ def read_users_db():
         return []
 
 
-# 6. Функція автентифікації з декоратором
+#перевірка на прохід чи пароль валідний
 @log_event
 def login(username: str, password: str, users_db: list) -> bool:
     if not username or not password:
@@ -146,27 +155,27 @@ def login(username: str, password: str, users_db: list) -> bool:
 
     for db_user, db_hash in users_db:
         if db_user == username:
-            # Виправлено SIM103: пряме повернення результату порівняння
+            #пряме повернення результату порівняння
             return db_hash == login_hash
 
     return False
 
 
-# Головна функція
+#головна функ
 def main():
-    print("--- 1. Реєстрація користувачів ---")
+    print("--- реєстрація користувачів ---")
     create_users(users_to_register)
 
-    print("\n--- 2. Зчитування бази ---")
+    print("\n--- зчитування бази ---")
     db = read_users_db()
 
-    print("\n--- 3. Тестування входу ---")
+    print("\n--- тестування входу ---")
     if db:
         try:
-            print("Спроба 1: Успішний вхід (admin) ->", login("admin", "SuperPyperPass3!", db))
-            print("Спроба 2: Неправильний пароль (user1) ->", login("user1", "WrongPass123", db))
-            print("Спроба 3: Неіснуючий логін (hacker) ->", login("hacker", "SuperPyperPass3!", db))
-            print("Спроба 4: Пусті дані ->", login("", "", db))
+            print("спроба 1: успішний вхід (admin) ", login("admin", "SuperPyperPass3!", db))
+            print("спроба 2: неправильний пароль (user1) ", login("user1", "WrongPass123", db))
+            print("спроба 3: неіснуючий логін (hacker) ", login("hacker", "SuperPyperPass3!", db))
+            print("спроба 4: пусті дані ", login("", "", db))
         except (ValueError, ValidationError) as e:
             print(f"Спроба 4 завершилася помилкою: {e}")
 

@@ -2,13 +2,13 @@ import os
 import random
 import sys
 
-# Підключення ваших даних з папки shared
+#папка шерд
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
 
 print(f"Студент: {STUDENT_NAME}, Група: {GROUP_NAME}, Варіант: {VARIANT_NUMBER}\n")
 
-# --- ВАШІ ДАНІ ДЛЯ 11 ВАРІАНТУ (замініть на свої) ---
+#вихідні паролі
 passwords = [
     "APT@Detect10n",
     "simple",
@@ -20,6 +20,7 @@ passwords = [
     "regular123",
     "Gr33n@Team",
     "normal123",
+    "qqq"
 ]
 
 criteria = {
@@ -37,47 +38,48 @@ forbidden_passwords = {
     "normal123",
     "test",
 }
-# ----------------------------------------------------
 
+#дублікат паролів
+random_indices = random.sample(range(len(passwords)), 3)
+for idx in random_indices:
+    passwords.append(passwords[idx])
 
-# 1. Вибираємо 3 випадкові паролі зі списку
-random_passwords = random.sample(passwords, 3)
-print("--- Перевірка 3 випадкових паролів ---")
+#таблиця
+print("--- результати аналізу надійності паролів ---")
+print(f"{'пароль':<16} | {'статус':<15} | {'довжина':<7} | {'унікальний'}")
+print("-" * 62)
 
-# 2. Перевіряємо кожен вибраний пароль
-for pwd in random_passwords:
-    print(f"\nПеревіряємо пароль: {pwd}")
+#початок оцінки
+for pwd in passwords:
+    #базовий перевірка на 1 рівень
+    is_forbidden = pwd.lower() in forbidden_passwords or len(pwd) < criteria["min_length"]
+    length = len(pwd)
+    is_unique = passwords.count(pwd) == 1
 
-    # Перевірка 1: Чи є пароль у списку заборонених
-    if pwd.lower() in forbidden_passwords:
-        print("Статус: Ненадійний (пароль знаходиться у списку заборонених)")
-        continue  # Переходимо до наступного пароля, цей вже не пройшов
+    #решта перевірки
+    has_lower = any(c.islower() for c in pwd)
+    has_upper = any(c.isupper() for c in pwd)
+    has_digit = any(c.isdigit() for c in pwd)
+    has_special = any(not c.isalnum() for c in pwd)
 
-    # Перевірка 2: Довжина пароля
-    if len(pwd) < criteria["min_length"]:
-        print(f"Статус: Ненадійний (коротший за {criteria['min_length']} символів)")
-        continue
+    #підрахунок критеріїв від 0 до 4
+    met_groups = sum([has_lower, has_upper, has_digit, has_special])
+    meets_all = met_groups == 4
 
-    # Перевірка 3: Наявність цифр
-    if criteria["require_digits"]:
-        has_digits = any(char.isdigit() for char in pwd)
-        if not has_digits:
-            print("Статус: Ненадійний (не містить жодної цифри)")
-            continue
+    #присвоєння статусу
+    if is_forbidden:
+        status = "заборонений"
+    elif meets_all and length >= (criteria["min_length"] + 4) and is_unique:
+        status = "дуже сильний"
+    elif meets_all:
+        status = "сильний"
+    elif met_groups >= 2:
+        status = "середній"
+    elif met_groups >= 1:
+        status = "слабкий"
+    else:
+        status = "невиачений"
 
-    # Перевірка 4: Наявність великих літер
-    if criteria["require_upper"]:
-        has_upper = any(char.isupper() for char in pwd)
-        if not has_upper:
-            print("Статус: Ненадійний (не містить великих літер)")
-            continue
-
-    # Перевірка 5: Наявність спеціальних символів (все, що не буква і не цифра)
-    if criteria["require_special"]:
-        has_special = any(not char.isalnum() for char in pwd)
-        if not has_special:
-            print("Статус: Ненадійний (не містить спеціальних символів)")
-            continue
-
-    # Якщо код дійшов сюди, значить пароль пройшов абсолютно всі перевірки
-    print("Статус: Надійний пароль!")
+    #вивід
+    unique_str = "так" if is_unique else "ні"
+    print(f"{pwd:<16} | {status:<15} | {length:<7} | {unique_str}")

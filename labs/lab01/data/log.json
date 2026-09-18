@@ -42,5 +42,489 @@
             "***"
         ],
         "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 05:51:38",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 05:51:38",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 05:51:38",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 05:51:38",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 06:17:28",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 06:17:28",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 06:17:28",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 06:17:28",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 06:18:07",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "success",
+        "timestamp": "2026-09-17 06:18:07",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 06:18:08",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 06:18:08",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 06:50:17",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 06:50:17",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 06:50:17",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 06:50:17",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 07:06:59",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:06:59",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:06:59",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:06:59",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 07:12:11",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:12:11",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:12:11",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:12:11",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 07:12:39",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:12:39",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:12:39",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:12:39",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 07:13:25",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:13:25",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:13:25",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:13:25",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 07:15:38",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:15:38",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:15:38",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:15:38",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 07:16:56",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:16:56",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:16:56",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:16:56",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-17 07:27:53",
+        "args": [
+            "admin",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "user1",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:27:53",
+        "args": [
+            "user1",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:27:53",
+        "args": [
+            "hacker",
+            "***"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-17 07:27:53",
+        "args": [
+            "",
+            "***"
+        ],
+        "kwargs": {}
     }
 ]
